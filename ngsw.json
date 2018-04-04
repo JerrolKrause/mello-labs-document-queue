@@ -1,0 +1,109 @@
+{
+  "configVersion": 1,
+  "index": "/mello-labs-document-queue/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/mello-labs-document-queue/apple-touch-icon.png",
+        "/mello-labs-document-queue/favicon.ico",
+        "/mello-labs-document-queue/index.html",
+        "/mello-labs-document-queue/manifest.json",
+        "/mello-labs-document-queue/safari-pinned-tab.svg",
+        "/mello-labs-document-queue/inline.cd36a00b433585e15d93.bundle.js",
+        "/mello-labs-document-queue/main.5487db71b2c9a512d3bc.bundle.js",
+        "/mello-labs-document-queue/polyfills.15d74ea13bddb118eb4d.bundle.js",
+        "/mello-labs-document-queue/styles.cd12b1b3a3f7186887ee.bundle.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "fonts",
+      "installMode": "lazy",
+      "updateMode": "lazy",
+      "urls": [
+        "/mello-labs-document-queue/fontawesome-webfont.674f50d287a8c48dc19b.eot",
+        "/mello-labs-document-queue/fontawesome-webfont.912ec66d7572ff821749.svg",
+        "/mello-labs-document-queue/fontawesome-webfont.af7ae505a9eed503f8b8.woff2",
+        "/mello-labs-document-queue/fontawesome-webfont.b06871f281fee6b241d6.ttf",
+        "/mello-labs-document-queue/fontawesome-webfont.fee66e712a8a08eef580.woff"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/mello-labs-document-queue/assets/icons/favicon-144x144.png",
+        "/mello-labs-document-queue/assets/icons/favicon-192x192.png",
+        "/mello-labs-document-queue/assets/icons/favicon-36x36.png",
+        "/mello-labs-document-queue/assets/icons/favicon-48x48.png",
+        "/mello-labs-document-queue/assets/icons/favicon-72x72.png",
+        "/mello-labs-document-queue/assets/icons/favicon-96x96.png",
+        "/mello-labs-document-queue/assets/media/1003.pdf",
+        "/mello-labs-document-queue/assets/media/Bank Statement.pdf",
+        "/mello-labs-document-queue/assets/media/Credit Report.pdf",
+        "/mello-labs-document-queue/assets/media/Drivers License.pdf",
+        "/mello-labs-document-queue/assets/media/Flood Certificate.pdf",
+        "/mello-labs-document-queue/assets/media/loanbean-receipt.pdf",
+        "/mello-labs-document-queue/assets/media/W2.pdf",
+        "/mello-labs-document-queue/assets/mock-data/env-settings.json",
+        "/mello-labs-document-queue/assets/mock-data/login.json",
+        "/mello-labs-document-queue/assets/mock-data/queue.json",
+        "/mello-labs-document-queue/assets/mock-data/users.json",
+        "/mello-labs-document-queue/assets/scripts/ie-polyfills.min.js"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "api-users",
+      "patterns": [
+        "https:\\/\\/jsonplaceholder\\.typicode\\.com\\/"
+      ],
+      "strategy": "freshness",
+      "maxSize": 360000000,
+      "maxAge": 14400000,
+      "timeoutMs": 5000,
+      "version": 1
+    }
+  ],
+  "hashTable": {
+    "/mello-labs-document-queue/inline.cd36a00b433585e15d93.bundle.js": "e199aea03585526aa7dfa7c68e416eb72eeb293a",
+    "/mello-labs-document-queue/fontawesome-webfont.674f50d287a8c48dc19b.eot": "d980c2ce873dc43af460d4d572d441304499f400",
+    "/mello-labs-document-queue/assets/icons/favicon-144x144.png": "cd740acbe91388f85669cc4f0fa5e5b290a856d2",
+    "/mello-labs-document-queue/main.5487db71b2c9a512d3bc.bundle.js": "8403a6bbf7917ea9c8e52e4e04985118bc35741e",
+    "/mello-labs-document-queue/fontawesome-webfont.912ec66d7572ff821749.svg": "98a8aa5cf7d62c2eff5f07ede8d844b874ef06ed",
+    "/mello-labs-document-queue/assets/icons/favicon-192x192.png": "7a0f10dcaff95684e0296cade925335825a14eed",
+    "/mello-labs-document-queue/polyfills.15d74ea13bddb118eb4d.bundle.js": "eb138829943fedfe2e52f47e95936d87257e2f6a",
+    "/mello-labs-document-queue/fontawesome-webfont.af7ae505a9eed503f8b8.woff2": "d6f48cba7d076fb6f2fd6ba993a75b9dc1ecbf0c",
+    "/mello-labs-document-queue/assets/icons/favicon-36x36.png": "c07c90a0195afffb63ec8eb62abe0632767590d0",
+    "/mello-labs-document-queue/styles.cd12b1b3a3f7186887ee.bundle.css": "480d0fc10e51d309f03e5db8ddc4d2e3816cf7f2",
+    "/mello-labs-document-queue/fontawesome-webfont.b06871f281fee6b241d6.ttf": "13b1eab65a983c7a73bc7997c479d66943f7c6cb",
+    "/mello-labs-document-queue/assets/icons/favicon-48x48.png": "c07c90a0195afffb63ec8eb62abe0632767590d0",
+    "/mello-labs-document-queue/apple-touch-icon.png": "15abe2d99cd932cf81f00244cb9db469458911f8",
+    "/mello-labs-document-queue/fontawesome-webfont.fee66e712a8a08eef580.woff": "28b782240b3e76db824e12c02754a9731a167527",
+    "/mello-labs-document-queue/assets/icons/favicon-72x72.png": "b689da63c26bfcbdc1aedc5a149eb05f08625881",
+    "/mello-labs-document-queue/favicon.ico": "1dff7b49e72900e40abf57468befc2872e037534",
+    "/mello-labs-document-queue/assets/icons/favicon-96x96.png": "f4d69d4c58c2a4b6ffc8588e9bb5a800af96ef1a",
+    "/mello-labs-document-queue/index.html": "b2c99e6c3a199a03eeee419e873fecf40ff3533c",
+    "/mello-labs-document-queue/assets/media/1003.pdf": "d14b9db07e763ae54d1087f5fa35e1cabe2c1ac6",
+    "/mello-labs-document-queue/manifest.json": "20415e2c51edf612cdf1c742ec8800d770ba08bf",
+    "/mello-labs-document-queue/assets/media/Bank Statement.pdf": "d14b9db07e763ae54d1087f5fa35e1cabe2c1ac6",
+    "/mello-labs-document-queue/safari-pinned-tab.svg": "2fa5629fc4c22d2a0e5a0a730fad7fb1a26ae627",
+    "/mello-labs-document-queue/assets/media/Credit Report.pdf": "d14b9db07e763ae54d1087f5fa35e1cabe2c1ac6",
+    "/mello-labs-document-queue/assets/media/Drivers License.pdf": "d14b9db07e763ae54d1087f5fa35e1cabe2c1ac6",
+    "/mello-labs-document-queue/assets/media/Flood Certificate.pdf": "d14b9db07e763ae54d1087f5fa35e1cabe2c1ac6",
+    "/mello-labs-document-queue/assets/media/loanbean-receipt.pdf": "a2ede4b9d973a84af70965dd9b1e135d5489eca1",
+    "/mello-labs-document-queue/assets/media/W2.pdf": "d14b9db07e763ae54d1087f5fa35e1cabe2c1ac6",
+    "/mello-labs-document-queue/assets/mock-data/env-settings.json": "3aeae28b5d5c11d2dd4eb044ae34340aef1ec468",
+    "/mello-labs-document-queue/assets/mock-data/login.json": "0bf2f1bc2f24df46961d441e5bc4b0f2dbd5214d",
+    "/mello-labs-document-queue/assets/mock-data/queue.json": "61326d393865deaafd88494a5ea49122c9b31d3d",
+    "/mello-labs-document-queue/assets/mock-data/users.json": "14bb89b1ab175afe30a7f31106c880898cb6175e",
+    "/mello-labs-document-queue/assets/scripts/ie-polyfills.min.js": "5ad71ea8c84bad2a077a99bb42191eb8d2a1b305"
+  }
+}
