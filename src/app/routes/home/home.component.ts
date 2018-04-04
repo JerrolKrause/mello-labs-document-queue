@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
 import { Datagrid } from '@mello-labs/datagrid';
@@ -12,24 +12,24 @@ import { columns } from './columns';
   selector: 'app-home',
   styleUrls: ['./home.component.scss'],
   templateUrl: './home.component.html',
-  // encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  public users$ = this.api.selectors.users$;
-  public usersState$ = this.api.getState$(ApiActions.users);
+  public queue$ = this.api.selectors.queue$;
+  public queueState$ = this.api.getState$(ApiActions.queue);
   public formMain: FormGroup;
   public isEditing: boolean;
 
   public filterGlobal: Datagrid.FilterGlobal = {
     term: '',
-    props: ['name', 'website'],
+    props: ['lnkey'],
   };
 
   // Inputs
   public options: Datagrid.Options = {
     scrollbarH: true,
-    selectionType: 'single',
+    selectionType: false,
     fullScreen: true,
     controlsDropdown: true,
     showInfo: true,
@@ -47,6 +47,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   public ngOnInit() {
     // Get users and load into store
     this.api.users.get().subscribe();
+    this.api.queue.get().subscribe();
 
     // Formgroup
     this.formMain = this.fb.group({
@@ -59,6 +60,27 @@ export class HomeComponent implements OnInit, OnDestroy {
       username: ['', [Validators.required]],
       website: ['', []],
     });
+  }
+
+  /**
+   * 
+   * @param docs
+   */
+  public downloadDocs(docs: string[]) {
+
+    const link = document.createElement('a');
+    link.style.display = 'none';
+    document.body.appendChild(link);
+
+    for (let i = 0; i < docs.length; i++) {
+      link.setAttribute('download', docs[i]);
+      link.setAttribute('href', 'assets/media/' + docs[i] + '.pdf');
+      link.click();
+    }
+
+    document.body.removeChild(link);
+
+
   }
 
   /**

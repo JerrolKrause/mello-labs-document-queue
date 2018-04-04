@@ -1,0 +1,83 @@
+<form name="formModal" id="modalReceipt">
+
+  <div class="modal-header">
+    <h3 class="modal-title"><i class="fa fa-eye" aria-hidden="true"></i> Loan Beam Document Submittal Verification</h3>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body" id="modal-body">
+
+    <!-- Local fallback if not on remote server -->
+    <object id="pdfViewer"
+            data="assets/media/loanbean-receipt.pdf"
+            type="application/pdf"
+            class="w-100 pdf e2e-document" style="top: 52px;">
+      <embed src="assets/media/loanbean-receipt.pdf" type="application/pdf" />
+    </object>
+
+    <!--
+  <h3 class="title"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Loan Information for <strong>100123123</strong></h3>
+  <table class="table table-sm table-striped" style="font-size:0.85rem;">
+    <tbody>
+      <tr>
+        <td style="width:45%;"><strong>Borrower Names:</strong></td>
+        <td style="width:55%;">Smith, John / Smith, Jane</td>
+      </tr>
+      <tr>
+        <td><strong>Property Address:</strong></td>
+        <td>6562 Irvine Center Drive, Irvine CA 92618</td>
+      </tr>
+      <tr>
+        <td><strong>Loan Amount:</strong></td>
+        <td>$500,00.00</td>
+      </tr>
+      <tr>
+        <td><strong>Documents Included in Submittal:</strong></td>
+        <td>
+          <ul class="ml-0 pl-3">
+            <li>
+              1099 John Smith<br />
+              <small><em>8312a75f-5028-4a7f-bf44-c00623ef2dad</em></small>
+            </li>
+            <li>
+              2016 Tax Returns Personal – Smith, Jane<br />
+              <small><em>c0b2910e-9e9a-4d70-ad6c-d7539c4b15b5</em></small>
+            </li>
+            <li>
+              2017 Tax Returns Personal – Smith, Jane<br />
+              <small><em>51744d70-a770-4b77-bbd9-78898a525a59</em></small>
+            </li>
+            <li>
+              2016 Tax Returns Personal – Smith, John<br />
+              <small><em>3885918d-75e7-4284-a760-282eb1a4742c</em></small>
+            </li>
+            <li>
+              2017 Tax Returns Personal – Smith, John<br />
+              <small><em>e9bcbd3e-a3d3-4c39-92ca-50201c8a7934</em></small>
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Date Submitted:</strong></td>
+        <td>4/4/2018</td>
+      </tr>
+      <tr>
+        <td><strong>Submitted By: </strong></td>
+        <td>jdoe</td>
+      </tr>
+    </tbody>
+  </table>
+  -->
+  </div>
+
+  <div class="modal-footer" style="justify-content: space-between;">
+    <button type="button" class="btn btn-interact-outline float-left pull-left dismiss" (click)="activeModal.dismiss('Close click')">Close</button>
+    <button type="button" class="btn btn-interact submit" (click)="submit()" aria-label="Close" [disabled]="waiting" [ngClass]="{'btn-waiting':waiting}">
+      <i class="fa fa-check" aria-hidden="true"></i> Confirm Receipt
+    </button>
+  </div>
+
+</form>

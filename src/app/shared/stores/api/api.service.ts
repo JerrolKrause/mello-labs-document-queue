@@ -16,7 +16,12 @@ export class ApiService extends ApiHttpService {
   /** Collection of API store selectors. Can be moved to own service if this gets too big */
   public selectors = {
     users$: this.store.select(store => store.api.users),
+    queue$: this.store.select(store => store.api.queue),
   };
+
+  public queue = {
+    get: (update?: boolean) => this.getStore<Models.User[]>(ApiMap.queue.endpoint, ApiMap.queue, update),
+  }
 
   // API endpoints
   /** Users endpoint */
@@ -30,7 +35,7 @@ export class ApiService extends ApiHttpService {
   };
 
   /** Get the API data using api props */
-  public getData$ = (apiProp: ApiActions) => this.store.select(store => store.api[apiProp]);
+  //public getData$ = (apiProp: ApiActions) => this.store.select(store => store.api[apiProp]);
   /** Get the API state using api props */
   public getState$ = (apiProp: ApiActions) => this.store.select(store => store.apiStatus[apiProp]);
 

@@ -1,5 +1,5 @@
 export const environment = {
-  appName: 'Mello Labs Angular Starter',
+  appName: 'Mello Labs Loanbeam Document Queue',
   production: true,
   serviceWorker: false,
   /** Is this app going to communicate with other domains or instances of itself for multiscreen usage? */

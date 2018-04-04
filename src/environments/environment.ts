@@ -4,7 +4,7 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  appName: 'Mello Labs Angular Starter',
+  appName: 'Mello Labs Loanbeam Document Queue',
   production: false,
   serviceWorker: false,
   /** Is this app going to communicate with other domains or instances of itself for multiscreen usage? */

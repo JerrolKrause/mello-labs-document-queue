@@ -73,6 +73,7 @@ import {
 
 import { UIModalService, UIStoreService, UIStoreReducer } from '@ui';
 import { ApiService } from '@api';
+import { ReceiptComponent } from './components/modals/receipt/receipt.component';
 
 // Application wide providers
 export const APP_COMPONENTS = [
@@ -131,6 +132,8 @@ export const APP_PROVIDERS = [
 
     // Directives
     FullScreenDirective,
+
+    ReceiptComponent,
   ],
   imports: [
     // Angular
@@ -160,7 +163,7 @@ export const APP_PROVIDERS = [
     { provide: APP_INITIALIZER, useFactory: AppInit, deps: [AppSettings, AppConfigService], multi: true },
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ConfirmationModalComponent, LogoutModalComponent],
+  entryComponents: [ConfirmationModalComponent, LogoutModalComponent, ReceiptComponent],
 })
 export class AppModule {}
 

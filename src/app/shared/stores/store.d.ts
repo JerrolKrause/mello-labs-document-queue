@@ -5,7 +5,7 @@ export declare namespace AppStore {
 
   /** API Store */
   interface Api {
-    //users?: any[]; // Store response
+    queue?: any[]; // Store response
     // Example of Store typing with mapped response
     users?: Mapped<{
       user: string;
@@ -20,6 +20,7 @@ export declare namespace AppStore {
   /** The API Map */
   export interface ApiMapping {
     users?: ApiMap;
+    queue?: ApiMap;
   }
 
   /** UI Store */
