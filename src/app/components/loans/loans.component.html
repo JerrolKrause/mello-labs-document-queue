@@ -24,10 +24,14 @@
         Corporate
       </td>
       <td>
-        <a (click)="docsDownload('/assets/media/100178595.zip', loan.lnkey)"><i aria-hidden="true" class="fa fa-download"></i> Download Documents ({{loan.docs}})</a>
+        <a (click)="docsDownload('/assets/media/100178595.zip', loan.lnkey)">
+          <i aria-hidden="true" class="fa fa-download"></i> Download Documents <em>({{loan.docs}})</em>
+        </a>
       </td>
       <td>
-        <a (click)="receiptIssue(loan.lnkey, hasDownloaded[loan.lnkey])" [ngClass]="{ 'disabled' : !hasDownloaded[loan.lnkey] }">
+        <a (click)="receiptIssue(loan.lnkey, hasDownloaded[loan.lnkey])"
+           [ngClass]="{ 'disabled' : !hasDownloaded[loan.lnkey] }"
+           [title]="!hasDownloaded[loan.lnkey] ? 'Documents must be downloaded before issuing receipt' : 'Issue Receipt' ">
           <i aria-hidden="true" class="fa fa-university"></i> Issue Receipt
         </a>
       </td>
