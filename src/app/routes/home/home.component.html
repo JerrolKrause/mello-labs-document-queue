@@ -27,6 +27,7 @@
         </ng-template>
         <ng-template ngbTabContent>
           <app-loans [loans]="routeData?.users | filter : false : 'new'"
+                     [resubmittal]="true"
                      (issueReceipt)="issueReceipt()">
           </app-loans>
         </ng-template>

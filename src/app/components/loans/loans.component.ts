@@ -11,6 +11,7 @@ import { DesktopUtils } from '$utils';
 export class LoansComponent implements OnInit {
 
   @Input() loans: any[] = [];
+  @Input() resubmittal: boolean = false;
   @Output() issueReceipt: EventEmitter<string> = new EventEmitter();
 
   public hasDownloaded: { [key: string]: true } = {};

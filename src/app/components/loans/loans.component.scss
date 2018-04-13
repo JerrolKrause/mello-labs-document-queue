@@ -1,0 +1,15 @@
+.table {
+  th{width:15%;}
+  .th-lg{width:20%}
+  .cursor{cursor:copy;}
+  .cursor:hover{outline:dashed 1px #aeaeae;outline-offset:-1px;}
+  tr:first-child td{padding: 1.6rem 0.3rem;}
+  thead tr:nth-child(1) th{position: sticky;top: 0;z-index: 10;}
+
+  &.resubmit{
+   th{width:11%;}
+  .th-lg{width:14%}
+  }
+}
+
+
