@@ -131,6 +131,8 @@
     <TypeScriptCompile Include="src\app\shared\models\index.d.ts" />
     <TypeScriptCompile Include="src\app\shared\pipes\debounce.pipe.ts" />
     <TypeScriptCompile Include="src\app\shared\pipes\filter.pipe.ts" />
+    <TypeScriptCompile Include="src\app\shared\pipes\phone-number.pipe.ts" />
+    <TypeScriptCompile Include="src\app\shared\pipes\safe-html.pipe.ts" />
     <TypeScriptCompile Include="src\app\shared\pipes\sort.pipe.ts" />
     <TypeScriptCompile Include="src\app\shared\pipes\string.pipe.ts" />
     <TypeScriptCompile Include="src\app\shared\services\app-comms.service.ts" />

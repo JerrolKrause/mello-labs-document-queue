@@ -5,7 +5,11 @@
       <th><span class="d-none d-xl-inline">Borrower</span> First Name</th>
       <th><span class="d-none d-xl-inline">Borrower</span> Last Name</th>
       <th>Location</th>
-      <th class="th-lg"><span class="d-none d-xl-inline">Download</span> Documents</th>
+      <th class="th-lg">
+        <span class="d-none d-xl-inline">Download</span>
+        <ng-container *ngIf="resubmittal"> New  </ng-container>
+        Documents
+      </th>
       <th class="th-lg">Issue Receipt</th>
       <th class="th-lg" *ngIf="resubmittal">View Receipts</th>
       <th class="th-lg" *ngIf="resubmittal">Reupload</th>
@@ -27,7 +31,10 @@
       </td>
       <td>
         <a (click)="docsDownload('/assets/media/100178595.zip', loan.lnkey)">
-          <i aria-hidden="true" class="fa fa-download"></i> <span class="d-none d-xl-inline">Download</span> Docs <em>({{loan.docs}})</em>
+          <i aria-hidden="true" class="fa fa-download"></i>
+          <span class="d-none d-xl-inline">Download</span>
+          <ng-container *ngIf="resubmittal"> New  </ng-container>
+          Docs <em>({{loan.docs}})</em>
         </a>
       </td>
       <td>

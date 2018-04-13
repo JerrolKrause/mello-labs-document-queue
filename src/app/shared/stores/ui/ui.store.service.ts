@@ -26,6 +26,9 @@ export class UIStoreService {
     this.select.saveState$.subscribe(uiState => this.storeStateSave(uiState));
   }
 
+  /**
+   * Open loan beam window and save reference
+   */
   public loanBeamOpen() {
     this.screen = window.open('https://loanbeam.docs.apiary.io/#', 'LoanBeam');
   }
