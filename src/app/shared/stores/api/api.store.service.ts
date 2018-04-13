@@ -5,25 +5,15 @@ import { Store } from '@ngrx/store';
 import { ApiHttpService, ApiStatusActions } from '@mello-labs/api-tools';
 import 'rxjs/add/observable/throw';
 
-import { AppSettings, AppStore } from '@shared';
+import { AppSettings, AppStore } from '$shared';
+import { ApiSelectorsService } from './api.selectors.service';
 import { ApiMap } from './api.map';
-import { ApiActions } from './api.actions';
 
-import { Models } from '@models';
+import { Models } from '$models';
 
 @Injectable()
 export class ApiService extends ApiHttpService {
-  /** Collection of API store selectors. Can be moved to own service if this gets too big */
-  public selectors = {
-    users$: this.store.select(store => store.api.users),
-    queue$: this.store.select(store => store.api.queue),
-  };
 
-  public queue = {
-    get: (update?: boolean) => this.getStore<Models.User[]>(ApiMap.queue.endpoint, ApiMap.queue, update),
-  }
-
-  // API endpoints
   /** Users endpoint */
   public users = {
     get: (update?: boolean) => this.getStore<Models.User[]>(ApiMap.users.endpoint, ApiMap.users, update),
@@ -34,16 +24,13 @@ export class ApiService extends ApiHttpService {
     delete: (user: Models.User) => this.deleteStore(ApiMap.users.endpoint + '/' + user.id, ApiMap.users, user),
   };
 
-  /** Get the API data using api props */
-  //public getData$ = (apiProp: ApiActions) => this.store.select(store => store.api[apiProp]);
-  /** Get the API state using api props */
-  public getState$ = (apiProp: ApiActions) => this.store.select(store => store.apiStatus[apiProp]);
-
   constructor(
     private store: Store<AppStore.Root>,
     private http: HttpClient,
     private router: Router,
     private settings: AppSettings,
+    /** API Store Selectors */
+    public select: ApiSelectorsService
   ) {
     super(<any>http, <any>store, <any>router);
 
@@ -83,7 +70,7 @@ export class ApiService extends ApiHttpService {
   }
 
   /**
-   * Fix a big with TS where super calls don't count as usage
+   * Fix a bug with TS where super calls don't count as usage
    */
   public fixTS() {
     console.log(this.http, this.router, this.settings);

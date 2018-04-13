@@ -16,7 +16,6 @@ import { StoreModule } from '@ngrx/store';
 import { DatagridModule } from '@mello-labs/datagrid';
 import { ApiToolsModule, ApiReducer, ApiStatusReducer } from '@mello-labs/api-tools';
 import { FormToolsModule } from '@mello-labs/form-tools';
-import { UtilitiesModule } from '@mello-labs/utilities';
 
 // Main entrypoint component
 import { AppComponent } from './app.component';
@@ -27,7 +26,7 @@ import { ROUTES } from './app.routes';
 enableProdMode();
 
 // Routes
-import { NoContentComponent, LoginComponent, HomeComponent, QaComponent } from '@routes';
+import { NoContentComponent, LoginComponent, HomeComponent, QaComponent } from '$routes';
 
 // Components
 import {
@@ -40,7 +39,7 @@ import {
   ConfirmationModalComponent,
   LogoutModalComponent,
   LaunchModalComponent,
-} from '@components';
+} from '$components';
 
 // Shared
 import {
@@ -66,16 +65,21 @@ import {
   DebouncePipe,
   StringPipe,
   SortPipe,
+  SafeHtmlPipe,
+  PhoneNumberPipe,
 
   // Directives
   FullScreenDirective,
-} from '@shared';
+} from '$shared';
 
-import { UIModalService, UIStoreService, UIStoreReducer } from '@ui';
-import { ApiService } from '@api';
-import { ReceiptComponent } from './components/modals/receipt/receipt.component';
+// UI Store
+import { UIModalService, UIStoreService, UIStoreReducer, UiSelectorsService } from '$ui';
 
-// Application wide providers
+// API Store
+import { ApiService, ApiSelectorsService } from '$api';
+import { LoansComponent } from './components/loans/loans.component';
+
+// Components
 export const APP_COMPONENTS = [
   NoContentComponent,
   LoginComponent,
@@ -96,24 +100,30 @@ export const APP_COMPONENTS = [
 
 // Application wide providers
 export const APP_PROVIDERS = [
-  HttpInterceptorService,
-  AuthService,
-  ApiService,
   AppSettings,
+
+  ApiService,
+  ApiSelectorsService,
+
   UIModalService,
   UIStoreService,
+  UiSelectorsService,
   AuthGuard,
+
+  AuthService,
   ServiceWorkerService,
   PostMessageService,
   AppConfigService,
   AppCommsService,
 
+  HttpInterceptorService,
+
   // Angular Pipes
   DatePipe,
   CurrencyPipe,
 
+  // Global exception handler
   {
-    // Global exception handler
     provide: ErrorHandler,
     useClass: GlobalErrorHandler,
   },
@@ -133,7 +143,11 @@ export const APP_PROVIDERS = [
     // Directives
     FullScreenDirective,
 
-    ReceiptComponent,
+    SafeHtmlPipe,
+
+    PhoneNumberPipe,
+
+    LoansComponent,
   ],
   imports: [
     // Angular
@@ -142,7 +156,7 @@ export const APP_PROVIDERS = [
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.serviceWorker }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.settings.enableServiceWorker }),
 
     NgbModule.forRoot(), // ng-bootstrap
     StoreModule.forRoot({ api: ApiReducer, apiStatus: ApiStatusReducer, ui: UIStoreReducer }), // NGRX
@@ -151,10 +165,10 @@ export const APP_PROVIDERS = [
     DatagridModule.forRoot(),
     ApiToolsModule.forRoot(),
     FormToolsModule.forRoot(),
-    UtilitiesModule.forRoot(),
   ],
   providers: [
     APP_PROVIDERS,
+
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorService,
@@ -163,7 +177,7 @@ export const APP_PROVIDERS = [
     { provide: APP_INITIALIZER, useFactory: AppInit, deps: [AppSettings, AppConfigService], multi: true },
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ConfirmationModalComponent, LogoutModalComponent, ReceiptComponent],
+  entryComponents: [ConfirmationModalComponent, LogoutModalComponent],
 })
 export class AppModule {}
 

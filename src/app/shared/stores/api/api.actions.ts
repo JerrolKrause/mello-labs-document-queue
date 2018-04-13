@@ -2,5 +2,4 @@
 export enum ApiActions {
   // Example
   users = 'users',
-  queue = 'queue'
 }

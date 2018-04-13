@@ -3,20 +3,20 @@ import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Store } from '@ngrx/store';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
-import { AppStore, AppSettings } from '@shared';
-import { ApiService } from '@api';
-import { UIStoreActions } from './ui.store.actions';
+import { AppStore, AppSettings } from '$shared';
+import { ApiService } from '$api';
+import { UIStoreActions } from './ui.actions';
 
-import { ConfirmationModalComponent, LogoutModalComponent, ReceiptComponent } from '@modals';
+import { ConfirmationModalComponent, LogoutModalComponent } from '$modals';
 
-/** Sample Usage: 
+/** Sample Usage:
 this.ui.modals.open('ConfirmationModalComponent', false, 'lg', 'Are you sure you want to delete this user?', 'Delete User').result.then(
 	() => console.log('Modal Closed'),
 	() => console.log('Modal Dismissed'));
 */
 
 // List modals here by component name
-type modals = 'LogoutModalComponent' | 'ConfirmationModalComponent' | 'ReceiptComponent';
+type modals = 'LogoutModalComponent' | 'ConfirmationModalComponent';
 
 @Injectable()
 export class UIModalService {
@@ -28,7 +28,6 @@ export class UIModalService {
   public modalList: { [key: string]: any } = {
     ConfirmationModalComponent: ConfirmationModalComponent,
     LogoutModalComponent: LogoutModalComponent,
-    ReceiptComponent: ReceiptComponent
   };
 
   constructor(

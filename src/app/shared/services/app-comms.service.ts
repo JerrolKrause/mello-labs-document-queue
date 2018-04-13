@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 
 import { PostMessageService } from './post-message.service';
 import { UIStoreService } from 'src/app/shared/stores/ui';
 
-import { environment } from '@env';
-import { AppSettings } from '@shared';
+import { environment } from '$env';
 
 export enum MessageActions {
   RESYNC_UI = 'RESYNC_UI',
@@ -21,7 +19,7 @@ export class AppCommsService {
   /** Hold subs for unsub */
   private subs: Subscription[] = [];
 
-  constructor(private messaging: PostMessageService, private settings: AppSettings, private ui: UIStoreService) {}
+  constructor(private messaging: PostMessageService, private ui: UIStoreService) {}
 
   /**
    * Start listening for app communication
@@ -29,9 +27,9 @@ export class AppCommsService {
   public commsEnable() {
     this.subs = [
       // Watch UI Store changes and fire the resync UI method to update store state in all instances
-      Observable.combineLatest([this.ui.selectors.multiScreen$]).subscribe(() => this.resyncUI()),
-      // Listen for any interapp communication on same domain
-      this.messaging.listenForMessages(environment.appCommDomains).subscribe(message => {
+      this.ui.select.saveState$.subscribe(() => this.resyncUI()),
+      // Listen for any interapp communication set by the listenTo env settings
+      this.messaging.listenForMessages(environment.domains.listenTo).subscribe(message => {
         switch (message.event) {
           // Resync any UI Changes
           case MessageActions.RESYNC_UI:
@@ -89,18 +87,18 @@ export class AppCommsService {
     // Get current path
     const slug = window.location.origin + window.location.pathname;
     this.subs.push(
-      this.ui.selectors.multiScreen$.subscribe(multiScreen => {
+      this.ui.select.multiScreen$.subscribe(multiScreen => {
         // If multiscreen is present and a window is not yet open and has not been closed
         if (multiScreen && !this.ui.screen && !window.opener) {
           setTimeout(() => {
-            this.ui.screen = window.open(slug + '#/viewer/' + this.settings.lnkey, 'Document Viewer');
+            this.ui.screen = window.open(slug + '#/', 'App Instance');
           });
         } else if (this.ui.screen && this.ui.screen.closed) {
           // If window has been closed
           this.ui.screen = null;
         } else if (multiScreen && this.ui.screen) {
           // If multi screen has been set and a window is already opened, update url in current window
-          this.ui.screen = window.open(slug + '#/viewer/' + this.settings.lnkey, 'Document Viewer');
+          this.ui.screen = window.open(slug + '#/', 'App Instance');
         } else if (this.ui.screen && multiScreen === false) {
           // If screen is open and multiscreen is false, close window
           this.ui.screen.close();

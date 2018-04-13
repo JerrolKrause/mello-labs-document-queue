@@ -1,0 +1,36 @@
+<table class="table table-sm table-striped small">
+  <thead class="thead-dark">
+    <tr>
+      <th>Loan</th>
+      <th>Borrower First Name</th>
+      <th>Borrower Last Name</th>
+      <th>Location</th>
+      <th style="width:20%">Download Documents</th>
+      <th style="width:20%">Issue Receipt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let loan of loans" [ngClass]="{ 'table-danger strong' : hasDownloaded[loan.lnkey] }">
+      <td title="Click to copy this value to the clipboard" class="cursor" (click)="copyToClipboard(loan.lnkey)">
+        {{loan.lnkey}}
+      </td>
+      <td title="Click to copy this value to the clipboard" class="cursor" (click)="copyToClipboard(loan.fName)">
+        {{loan.fName}}
+      </td>
+      <td title="Click to copy this value to the clipboard" class="cursor" (click)="copyToClipboard(loan.lName)">
+        {{loan.lName}}
+      </td>
+      <td title="Click to copy this value to the clipboard" class="cursor" (click)="copyToClipboard('Corporate')">
+        Corporate
+      </td>
+      <td>
+        <a (click)="docsDownload('/assets/media/100178595.zip', loan.lnkey)"><i aria-hidden="true" class="fa fa-download"></i> Download Documents ({{loan.docs}})</a>
+      </td>
+      <td>
+        <a (click)="receiptIssue(loan.lnkey, hasDownloaded[loan.lnkey])" [ngClass]="{ 'disabled' : !hasDownloaded[loan.lnkey] }">
+          <i aria-hidden="true" class="fa fa-university"></i> Issue Receipt
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,12 +1,11 @@
 import { Routes } from '@angular/router';
-import { HomeComponent, NoContentComponent, LoginComponent, QaComponent } from '@routes';
+import { HomeComponent, NoContentComponent, LoginComponent, QaComponent } from '$routes';
 
-import { LayoutMainComponent } from '@components';
-import { AuthGuard } from '@shared';
+import { LayoutMainComponent } from '$components';
+import { AuthGuard } from '$shared';
+import { environment } from '$env';
 
-import { environment } from '../environments/environment.prod';
-
-const titleSlug: string = ' | ' + environment.appName;
+const titleSlug: string = ' | ' + environment.properties.appName;
 
 export const ROUTES: Routes = [
   // Routes without masterpage or that do not need to be authenticated need to go first

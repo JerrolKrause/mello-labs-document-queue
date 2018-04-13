@@ -1,7 +1,8 @@
 /*styles for home content only*/
 #app-home {
-  .nav-link {
-      padding: 0.5rem 1rem;
-      font-size: 0.7rem;
-    }
+  th{width:15%;}
+  .cursor{cursor:copy;}
+  .cursor:hover{outline:dashed 1px #aeaeae;outline-offset:-1px;}
+  .table tr:first-child td{padding: 1.6rem 0.3rem;}
+  .nav-tabs-sm .nav-link { padding: .5rem 1rem;font-size: .85rem;}
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 
-import { UIModalService } from '@ui';
+import { UIModalService } from '$ui';
 
 /** Sample Usage:
 <app-launch-modal  classes="btn btn-icon"
@@ -41,8 +41,8 @@ export class LaunchModalComponent implements OnInit, OnDestroy {
   /** Add a class to the window object */
   @Input() windowClass = '';
 
-  @Output() onSuccess: EventEmitter<any> = new EventEmitter(); // A method to emit events to pass up to parent
-  @Output() onDismiss: EventEmitter<any> = new EventEmitter(); // A method to emit events to pass up to parent
+  @Output() success: EventEmitter<any> = new EventEmitter(); // A method to emit events to pass up to parent
+  @Output() dismiss: EventEmitter<any> = new EventEmitter(); // A method to emit events to pass up to parent
 
   private sub: Subscription;
 
@@ -65,16 +65,13 @@ export class LaunchModalComponent implements OnInit, OnDestroy {
     const modal = this.modals.open(<any>this.modal, this.persist, this.size, this.data, this.dataAlt);
     // If static modal
     if (modal) {
-      modal.result.then(reason => this.onSuccess.emit(reason), reason => this.onDismiss.emit(reason));
+      modal.result.then(reason => this.success.emit(reason), reason => this.dismiss.emit(reason));
     } else {
       // If observable modal. KNOWN BUG: If the page is refreshed and the app is dependent on an onSuccess method
       // that method will not be persisted
       this.sub = this.modals.modalRef$.subscribe(modalElem => {
         if (modalElem) {
-          modalElem.result.then(
-            (reason: any) => this.onSuccess.emit(reason),
-            (reason: any) => this.onDismiss.emit(reason),
-          );
+          modalElem.result.then((reason: any) => this.success.emit(reason), (reason: any) => this.dismiss.emit(reason));
         }
       });
     }

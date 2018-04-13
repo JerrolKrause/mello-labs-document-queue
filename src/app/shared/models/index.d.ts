@@ -7,7 +7,7 @@
  Config Options:
   - Set namespace to "Models"
   - TS version 2.7
-  - Generate DTo types: Checked
+  - Generate DTO types: Checked
   - Type Style: Interface
   - Null Value: Null
   - Leave everything else blank or unchecked here
@@ -15,8 +15,15 @@
  */
 
 export declare namespace Models {
+  /** Initial environment settings received from web api*/
+  interface EnvSettings {
+    ApiUrl: string;
+    ApiNamespace: string;
+    SignalRUrl: string;
+  }
+
   export interface User {
-    id?: number;
+    id: number;
     name?: string;
     username: string;
     email?: string;
