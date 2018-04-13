@@ -39,6 +39,7 @@ import {
   ConfirmationModalComponent,
   LogoutModalComponent,
   LaunchModalComponent,
+  ReceiptComponent
 } from '$components';
 
 // Shared
@@ -93,6 +94,7 @@ export const APP_COMPONENTS = [
   NavComponent,
   NavSearchComponent,
   LaunchModalComponent,
+  ReceiptComponent,
 
   ConfirmationModalComponent,
   LogoutModalComponent,

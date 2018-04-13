@@ -41,6 +41,7 @@
     <None Include="package-lock.json" />
     <None Include="package.json" />
     <None Include="README.md" />
+    <None Include="src\app\components\loans\loans.component.scss" />
     <None Include="src\app\components\modals\receipt\receipt.component.scss" />
     <None Include="src\app\routes\home\home.component.scss" />
     <None Include="src\app\routes\qa\qa.component.scss" />
@@ -71,6 +72,7 @@
     <Content Include="protractor.conf.js" />
     <Content Include="src\apple-touch-icon.png" />
     <Content Include="src\app\app.component.html" />
+    <Content Include="src\app\components\loans\loans.component.html" />
     <Content Include="src\app\components\masterpage\footer\footer.component.html" />
     <Content Include="src\app\components\masterpage\header\header.component.html" />
     <Content Include="src\app\components\masterpage\main\layout-main.component.html" />
@@ -102,6 +104,8 @@
     <TypeScriptCompile Include="src\app\app.routes.ts" />
     <TypeScriptCompile Include="src\app\components\index.ts" />
     <TypeScriptCompile Include="src\app\components\launch-modal\launch-modal.component.ts" />
+    <TypeScriptCompile Include="src\app\components\loans\loans.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\components\loans\loans.component.ts" />
     <TypeScriptCompile Include="src\app\components\masterpage\footer\footer.component.ts" />
     <TypeScriptCompile Include="src\app\components\masterpage\header\header.component.ts" />
     <TypeScriptCompile Include="src\app\components\masterpage\index.ts" />
