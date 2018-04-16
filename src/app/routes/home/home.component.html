@@ -10,8 +10,11 @@
 
     <div class="alert alert-warning icon" *ngIf="!routeData?.users?.length">No users found</div>
 
-    <ngb-tabset class="nav-tabs-sm" *ngIf="routeData?.users?.length">
-      <ngb-tab>
+    <ngb-tabset class="nav-tabs-sm"
+                *ngIf="routeData?.users?.length"
+                (tabChange)="ui.tabChange('HOME', $event)"
+                [activeId]="ui.select.tabActive$('HOME') | async">
+      <ngb-tab id="tab-1">
         <ng-template ngbTabTitle>
           New Loans <small><em> ({{( routeData?.users | filter : true : 'new').length }})</em></small>
         </ng-template>
@@ -21,7 +24,7 @@
           </app-loans>
         </ng-template>
       </ngb-tab>
-      <ngb-tab>
+      <ngb-tab id="tab-2">
         <ng-template ngbTabTitle>
           Resubmittals <small><em> ({{( routeData?.users | filter : false : 'new').length }})</em></small>
         </ng-template>

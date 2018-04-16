@@ -6,6 +6,7 @@ const initialState: AppStore.Ui = {
   saveState: null,
   modal: null,
   multiScreen: false,
+  tabsActive: {}
 };
 
 export function UIStoreReducer(state = initialState, { type, payload }: any) {
@@ -20,6 +21,10 @@ export function UIStoreReducer(state = initialState, { type, payload }: any) {
       break;
     case UIStoreActions.MODAL_OPEN:
       state.modal = { ...payload };
+      needSave = true;
+      break;
+    case UIStoreActions.TAB_CHANGE:
+      state.tabsActive[payload.tabInstanceId] = payload.tabId;
       needSave = true;
       break;
     case UIStoreActions.MODAL_UNLOAD:

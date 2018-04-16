@@ -4,5 +4,11 @@ export enum UIStoreActions {
   REHYDRATE = 'REHYDRATE',
   MODAL_OPEN = 'MODAL_OPEN',
   MODAL_UNLOAD = 'MODAL_UNLOAD',
+  TAB_CHANGE = 'TAB_CHANGE',
   MULTISCREEN_TOGGLE = 'MULTISCREEN_TOGGLE',
+}
+
+/** Unique ID for tab instances */
+export enum UITabs {
+  HOME = 'HOME'
 }

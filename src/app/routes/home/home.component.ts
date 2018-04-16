@@ -21,9 +21,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   /** Hold subs for unsub */
   private subs: Subscription[] = [];
 
-  constructor(private api: ApiService, public ui: UIStoreService) {}
+  constructor(private api: ApiService, public ui: UIStoreService) { }
 
-  public ngOnInit() {
+  ngOnInit() {
     this.api.users.get().subscribe();
   }
 
