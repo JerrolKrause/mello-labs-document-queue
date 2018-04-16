@@ -1,0 +1,113 @@
+<div class="container-fluid">
+
+
+  <div class="card mb-3">
+    <div class="card-header p-2">
+
+      <div class="float-right">
+        <button class="btn btn-primary btn-sm" (click)="exportToExcel()">
+          <i class="fa fa-file-excel-o" aria-hidden="true"></i> Export To Excel
+        </button>
+      </div>
+
+      Start Date:
+      <form class="form-inline d-inline-block">
+        <div class="form-group">
+          <div class="input-group">
+            <input class="form-control form-control-sm"
+                   placeholder="yyyy-mm-dd"
+                   name="dp"
+                   [ngModel]="dateStart"
+                   (ngModelChange)="dateChange('dateStart',$event)"
+                   ngbDatepicker #dStart="ngbDatepicker">
+            <div class="input-group-append">
+              <button class="btn btn-primary btn-sm" (click)="dStart.toggle()" type="button">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+
+      End Date:
+      <form class="form-inline d-inline-block">
+        <div class="form-group">
+          <div class="input-group">
+            <input class="form-control form-control-sm"
+                   placeholder="yyyy-mm-dd"
+                   name="dp"
+                   [ngModel]="dateEnd"
+                   (ngModelChange)="dateChange('dateEnd',$event)"
+                   ngbDatepicker #dEnd="ngbDatepicker">
+            <div class="input-group-append">
+              <button class="btn btn-primary btn-sm" (click)="dEnd.toggle()" type="button">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <button class="btn btn-primary btn-sm ml-2" [disabled]="!dateStart || !dateEnd">
+        <i class="fa fa-search-plus" aria-hidden="true"></i> Get Log
+      </button>
+
+    </div>
+  </div>
+
+  <table class="table table-sm table-striped small">
+    <thead class="thead-dark">
+      <tr>
+        <th>Date</th>
+        <th>User</th>
+        <th>Receipt</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>04/02/2018</td>
+        <td>Jkrause</td>
+        <td>
+          <a><i aria-hidden="true" class="fa fa-eye"></i> View Receipt</a>
+        </td>
+      </tr>
+      <tr>
+        <td>04/02/2018</td>
+        <td>Jkrause</td>
+        <td>
+          <a><i aria-hidden="true" class="fa fa-eye"></i> View Receipt</a>
+        </td>
+      </tr>
+      <tr>
+        <td>04/02/2018</td>
+        <td>Jkrause</td>
+        <td>
+          <a><i aria-hidden="true" class="fa fa-eye"></i> View Receipt</a>
+        </td>
+      </tr>
+      <tr>
+        <td>04/02/2018</td>
+        <td>Jkrause</td>
+        <td>
+          <a><i aria-hidden="true" class="fa fa-eye"></i> View Receipt</a>
+        </td>
+      </tr>
+      <tr>
+        <td>04/02/2018</td>
+        <td>Jkrause</td>
+        <td>
+          <a><i aria-hidden="true" class="fa fa-eye"></i> View Receipt</a>
+        </td>
+      </tr>
+      <tr>
+        <td>04/02/2018</td>
+        <td>Jkrause</td>
+        <td>
+          <a><i aria-hidden="true" class="fa fa-eye"></i> View Receipt</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

@@ -44,6 +44,7 @@
     <None Include="src\app\components\loans\loans.component.scss" />
     <None Include="src\app\components\modals\receipt\receipt.component.scss" />
     <None Include="src\app\routes\home\home.component.scss" />
+    <None Include="src\app\routes\log\log.component.scss" />
     <None Include="src\app\routes\qa\qa.component.scss" />
     <None Include="src\assets\.gitkeep" />
     <None Include="src\assets\media\1003.pdf" />
@@ -84,6 +85,7 @@
     <Content Include="src\app\components\modals\receipt\receipt.component.html" />
     <Content Include="src\app\routes\home\home.component.html" />
     <Content Include="src\app\routes\login\login.component.html" />
+    <Content Include="src\app\routes\log\log.component.html" />
     <Content Include="src\app\routes\qa\qa.component.html" />
     <Content Include="src\assets\icons\favicon-144x144.png" />
     <Content Include="src\assets\icons\favicon-192x192.png" />
@@ -124,6 +126,8 @@
     <TypeScriptCompile Include="src\app\routes\index.ts" />
     <TypeScriptCompile Include="src\app\routes\login\login.component.spec.ts" />
     <TypeScriptCompile Include="src\app\routes\login\login.component.ts" />
+    <TypeScriptCompile Include="src\app\routes\log\log.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\routes\log\log.component.ts" />
     <TypeScriptCompile Include="src\app\routes\no-content\no-content.component.ts" />
     <TypeScriptCompile Include="src\app\routes\qa\qa.component.ts" />
     <TypeScriptCompile Include="src\app\shared\app.settings.ts" />

@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { HomeComponent, NoContentComponent, LoginComponent, QaComponent } from '$routes';
+import { HomeComponent, NoContentComponent, LoginComponent, QaComponent, LogComponent } from '$routes';
 
 import { LayoutMainComponent } from '$components';
 import { AuthGuard } from '$shared';
@@ -19,6 +19,7 @@ export const ROUTES: Routes = [
     component: LayoutMainComponent,
     children: [
       { path: '', component: HomeComponent, data: { title: 'Dashboard' + titleSlug }, canActivate: [AuthGuard] },
+      { path: 'log', component: LogComponent, data: { title: 'Activity Log' + titleSlug }, canActivate: [AuthGuard] },
       { path: 'qa', component: QaComponent, data: { title: 'E2E Testing' + titleSlug }, canActivate: [AuthGuard] },
       {
         path: '**',

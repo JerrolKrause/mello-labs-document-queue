@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import {  NgbTabChangeEvent } from '@ng-bootstrap/ng-bootstrap';
+import { NgbTabChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 
 import { environment } from '$env';
 import { AppStore } from '$shared';
-import { UIStoreActions, UITabs } from './ui.actions';
+import { UIStoreActions } from './ui.actions';
 import { UiSelectorsService } from './ui.selectors.service';
 
 @Injectable()
@@ -41,7 +41,7 @@ export class UIStoreService {
    * @param tabInstanceId - A name or unique identifier for this tab instance
    * @param tabId - The tabChange event supplied by ng-boostrap
    */
-  public tabChange(tabInstanceId: UITabs, tabId: NgbTabChangeEvent) {
+  public tabChange(tabInstanceId: string, tabId: NgbTabChangeEvent) {
     this.store.dispatch({ type: UIStoreActions.TAB_CHANGE, payload: { tabInstanceId: tabInstanceId, tabId: tabId.nextId} });
   }
 

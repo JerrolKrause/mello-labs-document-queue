@@ -7,8 +7,3 @@ export enum UIStoreActions {
   TAB_CHANGE = 'TAB_CHANGE',
   MULTISCREEN_TOGGLE = 'MULTISCREEN_TOGGLE',
 }
-
-/** Unique ID for tab instances */
-export enum UITabs {
-  HOME = 'HOME'
-}

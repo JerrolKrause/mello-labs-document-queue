@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { UITabs } from './ui.actions';
 
 import { AppStore } from '$shared';
 
@@ -11,7 +10,7 @@ export class UiSelectorsService {
   public modal$ = this.store.select(store => store.ui.modal);
   public multiScreen$ = this.store.select(store => store.ui.multiScreen);
 
-  public tabActive$ = (tabInstanceId: UITabs) => this.store.select(store => store.ui.tabsActive[tabInstanceId]);
+  public tabActive$ = (tabInstanceId: string) => this.store.select(store => store.ui.tabsActive[tabInstanceId]);
 
   constructor(private store: Store<AppStore.Root>) { }
 

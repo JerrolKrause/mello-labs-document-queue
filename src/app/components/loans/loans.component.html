@@ -45,9 +45,9 @@
         </a>
       </td>
       <td *ngIf="resubmittal">
-        <a>
+        <app-launch-modal modal="ReceiptComponent" size="xl" [data]="loan.lName"[isButton]="false">
           <i aria-hidden="true" class="fa fa-eye"></i> View <span class="d-none d-xl-inline">Prior Receipts</span>
-        </a>
+        </app-launch-modal>
       </td>
       <td *ngIf="resubmittal">
         <a>

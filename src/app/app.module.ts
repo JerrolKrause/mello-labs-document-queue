@@ -39,7 +39,8 @@ import {
   ConfirmationModalComponent,
   LogoutModalComponent,
   LaunchModalComponent,
-  ReceiptComponent
+  ReceiptComponent,
+  LoansComponent
 } from '$components';
 
 // Shared
@@ -78,7 +79,7 @@ import { UIModalService, UIStoreService, UIStoreReducer, UiSelectorsService } fr
 
 // API Store
 import { ApiService, ApiSelectorsService } from '$api';
-import { LoansComponent } from './components/loans/loans.component';
+import { LogComponent } from './routes/log/log.component';
 
 // Components
 export const APP_COMPONENTS = [
@@ -94,6 +95,7 @@ export const APP_COMPONENTS = [
   NavComponent,
   NavSearchComponent,
   LaunchModalComponent,
+  LoansComponent,
   ReceiptComponent,
 
   ConfirmationModalComponent,
@@ -146,10 +148,8 @@ export const APP_PROVIDERS = [
     FullScreenDirective,
 
     SafeHtmlPipe,
-
     PhoneNumberPipe,
-
-    LoansComponent,
+    LogComponent,
   ],
   imports: [
     // Angular
@@ -179,7 +179,7 @@ export const APP_PROVIDERS = [
     { provide: APP_INITIALIZER, useFactory: AppInit, deps: [AppSettings, AppConfigService], multi: true },
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ConfirmationModalComponent, LogoutModalComponent],
+  entryComponents: [ConfirmationModalComponent, LogoutModalComponent, ReceiptComponent],
 })
 export class AppModule {}
 
